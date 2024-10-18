@@ -38,3 +38,18 @@ select freestyle project
 mention github project section : your github repo url
 
 build now✌️✌️✌️✌️
+
+
+
+`sudo apt install nodejs -y`
+
+`sudo apt install npm -y`
+
+`sudo npm install`
+
+
+RUN YOUR APPLICATION
+
+`sudo node app.js`
+
+
