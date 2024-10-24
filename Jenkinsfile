@@ -25,7 +25,7 @@ pipeline {
         stage('code deploy') {
             steps {
                 echo "deploying v hogya h container k andar"
-                sh "docker run -itd -p 8000:8000 nodeappimg:latest"
+                sh "docker run -itd -p 8000:8000 mywebappimg:latest"
             }
         }
     }
