@@ -11,9 +11,12 @@ pipeline {
         stage('code build') {
             steps {
                 echo "code build v karliye"
-                sh "docker build . -t nodeappimg:latest"
+                sh "docker build . -t mywebappimg:latest"
             }
         }
+
+        ///// if any error uring code build :- install docker , sudo usermod -aG docker jenkins , sudo systemctl restart jenkins ( again build now )
+        
         stage('code test') {
             steps {
                 echo "code testing hogya"
