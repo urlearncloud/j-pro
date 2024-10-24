@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        ///// if any error uring code build :- install docker , sudo usermod -aG docker jenkins , sudo systemctl restart jenkins ( again build now )
+        ///// if any error during code build :- install docker , sudo usermod -aG docker jenkins , sudo systemctl restart jenkins ( again build now )
         
         stage('code test') {
             steps {
