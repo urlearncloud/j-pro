@@ -22,11 +22,19 @@ pipeline {
                 echo "code testing hogya"
             }
         }
-        stage('code deploy') {
+        stage("Push to Docker Hub"){
             steps {
-                echo "deploying v hogya h container k andar"
-                sh "docker run -itd -p 8000:8000 mywebappimg:latest"
+                echo "pushing the image to docker hub"
+                withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
+                sh "docker tag my-node-app ${env.dockerHubUser}/my-node-app:latest"
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker push ${env.dockerHubUser}/my-node-app:latest"
+                }
             }
         }
+        stage("deploy"){
+            steps {
+                echo "deploying the container"
+                sh "docker-compose down && docker-compose up -d"
     }
 }
