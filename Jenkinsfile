@@ -26,9 +26,9 @@ pipeline {
             steps {
                 echo "pushing the image to docker hub"
                 withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
-                sh "docker tag my-node-app ${env.dockerHubUser}/my-node-app:latest"
+                sh "docker tag mywebappimg ${env.dockerHubUser}/mywebappimg:latest"
                 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                sh "docker push ${env.dockerHubUser}/my-node-app:latest"
+                sh "docker push ${env.dockerHubUser}/mywebappimg:latest"
                 }
             }
         }
